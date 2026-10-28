@@ -6,7 +6,7 @@ description: Use when making a motion graphics video, launch film, product promo
 # Directing motion films with Claude Design
 
 ## Overview
-The prompt is about 10% of the video. The other 90% is the harness: a reference, a locked look, a director's brief, gated stages, and a critique loop that measures real frames. Without them, Claude falls back to its default film: centred text on a dark gradient, everything fading in, a logo at the end.
+Use a reference, a locked visual system, a director's brief, staged approvals and a critique loop based on rendered frames. These artifacts make creative decisions explicit and give each review a concrete target.
 
 You are the director. Claude Design is the crew. Your job is to hand it a brief and hold every gate.
 
