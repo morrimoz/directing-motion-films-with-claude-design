@@ -1,44 +1,55 @@
 # Directing motion films with Claude Design
 
-An [agent skill](https://cursor.com/docs/context/skills) for making motion graphics that do not look like the default AI film: centred text on a dark gradient, everything fading in, a logo at the end.
+**Category: Creative AI workflows | Format: Agent skill and production templates**
 
-The prompt is about 10% of the video. The other 90% is the harness: a reference, a locked look, a director's brief, gated stages, and a critique loop that measures real frames.
+A structured workflow for directing motion graphics with references, approved style frames, a timed brief and reviews of rendered frames. It can guide work in Claude Design or code-rendered animation tools.
 
-## What it does
+This repository contains the production process and templates. It does not include a video renderer or a finished-film showcase.
 
-The skill walks an agent through nine gates. Style frames are approved before any motion. Each review round scores real frames and fixes only the three worst problems.
+## What is included
 
-It also includes:
+| Resource | Purpose |
+| --- | --- |
+| [SKILL.md](SKILL.md) | Nine stages from brief to export, with review gates |
+| [Director brief](director-brief-template.md) | Audience, story, visual system, motion, sound, assets and delivery formats |
+| [Critique checklist](critique-checklist.md) | Contact-sheet commands, vertical safe-zone checks and a review rubric |
 
-- `director-brief-template.md` - the brief pasted into the first message
-- `critique-checklist.md` - ffmpeg contact sheets, a 9:16 safe-zone overlay, and a 1-10 rubric
+## Workflow
 
-Works with Claude Design, and with any code-rendered animation (HTML/canvas, HyperFrames, Remotion).
+Brief the film, inspect references, gather assets and approve still frames before animating. Build an animatic, finish motion and sound, then verify exports. Each review identifies three concrete problems to fix before the next pass.
+
+The goal is to make creative decisions and acceptance checks explicit. The workflow does not guarantee a particular visual quality score.
 
 ## Install
 
-**Cursor** (all projects):
+For Cursor:
 
 ```bash
+mkdir -p ~/.cursor/skills
 git clone https://github.com/morrimoz/directing-motion-films-with-claude-design.git ~/.cursor/skills/directing-motion-films-with-claude-design
 ```
 
-**Claude Code:**
+For Claude Code, use `~/.claude/skills/directing-motion-films-with-claude-design`. Start a new session after installation.
 
-```bash
-git clone https://github.com/morrimoz/directing-motion-films-with-claude-design.git ~/.claude/skills/directing-motion-films-with-claude-design
+## Example request
+
+```text
+Use the directing-motion-films-with-claude-design skill for a product explainer.
+Start with the brief and style frames. Use the supplied references and assets.
 ```
 
-Restart the session so the skill is picked up. The folder must contain `SKILL.md`.
+## Requirements and tradeoffs
 
-## Usage
+A separate design or animation tool is required. Frame extraction and export inspection use FFmpeg and ffprobe. Human review is part of the workflow. References, licensed assets, rendering costs and final output verification remain the user's responsibility.
 
-Ask for a motion video, launch film, product promo, explainer, or animated ad. The skill also applies when a generated video looks generic, cluttered, UI-heavy, mushy, slow, or AI-made.
+Native landscape and portrait compositions take more work than cropping a single export, but allow readable layouts in each format.
 
-## Source
+## Attribution
 
-The process follows the Movez course, "How to build motion design studio with Opus 5.5" (x.com/0xmovez, 2026-09-27): harness over prompt, reference, spec, springs, sound, critique loop, gates.
+The workflow draws on the Movez course, "How to build motion design studio with Opus 5.5" by [0xmovez](https://x.com/0xmovez), published September 27, 2026.
 
-## License
+## Related tool
 
-MIT
+[Plan to execution plan](https://github.com/morrimoz/plan-to-execution-plan) structures larger technical projects into bounded work and verification steps.
+
+[MIT license](LICENSE)
